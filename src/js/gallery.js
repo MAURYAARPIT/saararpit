@@ -36,7 +36,6 @@ $('body').ready(() => {
         $('.viewer .album-image.prev, .viewer .album-image.next').click((e) => {
 
             $('.viewer .album-image').unbind();
-            console.log("clicked!")
             prev = (active + num - 1) % num;
             next = (active + 1) % num;
 
