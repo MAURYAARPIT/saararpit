@@ -6,12 +6,9 @@
 
     <!-- preconnecting to google fonts to increase loading speed-->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    
+
     <!-- all third-party script imports -->
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script> <!-- jquery -->
 
     <!-- all custom imports -->
@@ -36,10 +33,19 @@
     </div>
 
     <!-- Viewer to display photos of the album -->
-    <div class="viewer">
-        <img class="album-image prev">
-        <img class="album-image active">
-        <img class="album-image next">
+    <div class="viewer currAlbum">
+        <img src="./src/assets/images/gallery-images/dc.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/gconvo.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/bconvo.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/sconvo.jpg" class="album-image">
+    </div>
+
+    <div class="viewer hiddenAlbum">
+        <img src="./src/assets/images/gallery-images/cs.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/ee.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/mech.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/btech14-18ch.jpg" class="album-image">
+        <img src="./src/assets/images/gallery-images/btech14-18ce.jpg" class="album-image">
     </div>
 
     <!-- Pull up arrow -->
@@ -58,7 +64,7 @@
             <!-- Name of the album -->
             <h3 class="album-title">Graduation Ceremony</h3>
         </div>
-    
+
         <div class="album">
             <img src="./src/assets/images/gallery-images/cs.jpg" class="image-card album-cover">
             <img src="./src/assets/images/gallery-images/ee.jpg" class="image-card">

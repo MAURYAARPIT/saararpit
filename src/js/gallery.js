@@ -5,8 +5,8 @@ $('body').ready(() => {
         el.style.backgroundImage = 'url(' + album_cover.src + ')';
     });
 
-    let album_images = {};
-    $('.scroller .album.active .image-card').each((i, el) => {
+    let album_images = {}; //get an array of all current album images
+    $('.currAlbum .album-image').each((i, el) => {
         album_images[i] = el;
     });
 
@@ -21,19 +21,21 @@ $('body').ready(() => {
 
 
     function init_carousel(p, a, n) {
-        // $('.viewer .album-image').removeClass('active prev next');
-
-        $('.viewer .album-image.next').attr('src', album_images[n].src);
-        $('.viewer .album-image.active').attr('src', album_images[a].src);
-        $('.viewer .album-image.prev').attr('src', album_images[p].src);
-
-        $('.viewer .album-image.prev').click(() => active = (active + num - 1) % num);
-        $('.viewer .album-image.next').click(() => active = (active + 1) % num);
-
+        $('.viewer.currAlbum')[0].style.display = 'flex';
+        $('.viewer.hiddenAlbum')[0].style.display = 'none';
+        $('.viewer .album-image').removeClass('active prev next');
+        $(album_images[n]).addClass('next');
+        $(album_images[a]).addClass('active');
+        $(album_images[p]).addClass('prev');
+        $('.viewer .prev').on('click', () => {
+            active = (active + num - 1) % num;
+        })
+        $('.viewer .next').on('click', () => {
+            active = (active + 1) % num;
+        })
         $('.viewer .album-image.prev, .viewer .album-image.next').click((e) => {
 
             $('.viewer .album-image').unbind();
-
             prev = (active + num - 1) % num;
             next = (active + 1) % num;
 
@@ -47,10 +49,13 @@ $('body').ready(() => {
             $('.scroller .album').unbind();
 
             $('.scroller .album.active').removeClass('active');
+            $('.viewer.currAlbum').removeClass('currAlbum').addClass('temp');
+            $('.viewer.hiddenAlbum').removeClass('hiddenAlbum').addClass('currAlbum');
+            $('.viewer.temp').removeClass('temp').addClass('hiddenAlbum');
             $(e.currentTarget).addClass('active');
 
             album_images = {}
-            $('.scroller .album.active .image-card').each((i, el) => {
+            $('.currAlbum .album-image').each((i, el) => {
                 album_images[i] = el;
             });
 
