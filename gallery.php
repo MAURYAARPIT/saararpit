@@ -48,6 +48,10 @@
         <img src="./src/assets/images/gallery-images/btech14-18ce.jpg" class="album-image">
     </div>
 
+    <!--overlay divs for images -->
+    <div class="overlay right"></div>
+    <div class="overlay left"></div>
+
     <!-- Pull up arrow -->
     <img src="./src/assets/images/back-head-white.svg" class="arrow-icon hide">
 

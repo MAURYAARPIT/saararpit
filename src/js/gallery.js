@@ -27,15 +27,23 @@ $('body').ready(() => {
         $(album_images[n]).addClass('next');
         $(album_images[a]).addClass('active');
         $(album_images[p]).addClass('prev');
-        $('.viewer .prev').on('click', () => {
+
+        $('.overlay')[0].style.display = 'none';
+        $('.overlay')[1].style.display = 'none';
+        setTimeout(() => {
+            $('.overlay')[0].style.display = 'block';
+            $('.overlay')[1].style.display = 'block';
+        }, 200);
+
+        $('.overlay.left').on('click', () => {
             active = (active + num - 1) % num;
         })
-        $('.viewer .next').on('click', () => {
+        $('.overlay.right').on('click', () => {
             active = (active + 1) % num;
         })
-        $('.viewer .album-image.prev, .viewer .album-image.next').click((e) => {
+        $('.overlay.left, .overlay.right').click((e) => {
 
-            $('.viewer .album-image').unbind();
+            $('.overlay').unbind();
             prev = (active + num - 1) % num;
             next = (active + 1) % num;
 
