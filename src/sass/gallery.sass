@@ -48,6 +48,24 @@ body
             width: 4vh
             cursor: pointer
 
+    .right
+        position: absolute
+        right: 0
+        background: #001d1d
+        z-index: 2
+        height: 100%
+        width: 20%
+        opacity: 0.6
+        cursor: pointer
+
+    .left
+        position: absolute
+        width: 20%
+        height: 100%
+        background: #001d1d
+        z-index: 2
+        opacity: 0.6
+        cursor: pointer
     .viewer
         position: absolute
         height: 100%
@@ -78,13 +96,13 @@ body
             // Preview card on the left
             &.prev
                 transform: scale(0.8) translate(-110%, 0)
-                opacity: 0.6
+                opacity: 1
                 z-index: 1
             
             // Preview card on the right
             &.next
                 transform: scale(0.8) translate(110%, 0)
-                opacity: 0.6
+                opacity: 1
                 z-index: 1
 
     .viewer::after
